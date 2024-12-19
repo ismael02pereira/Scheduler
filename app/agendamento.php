@@ -8,10 +8,12 @@ ini_set('display_errors', 1);
 
 <!-- Conteúdo principal da página -->
 <div class="main-content ">
-    <div class="card shadow-lg bg-white rounded">
+<div class="bg-primary pt-10 pb-21"></div>
+<div class="container-fluid mt-n22 px-6">
+    <!-- <div class="card shadow-lg bg-white rounded">
         <div class="card-body">
         </div>
-    </div>
+    </div> -->
     <div class="container mt-5">
         <!-- <div id='calendar-container'> -->
             <div id='calendar'></div>
@@ -40,6 +42,8 @@ ini_set('display_errors', 1);
         </div> -->
     </div>
 </div>
+</div>
+
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -55,22 +59,10 @@ ini_set('display_errors', 1);
     document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
 
-    // var calendar = new Calendar(calendarEl, {
-
-    //     eventClick: function(info) {
-    //     alert('Event: ' + info.event.title);
-    //     alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-    //     alert('View: ' + info.view.type);
-
-    //     // change the border color just for fun
-    //     info.el.style.borderColor = 'red';
-    //     }
-
-    // });
-
     var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
         themeSystem: 'bootstrap',
+        locale: 'pt-br',
         height: 'parent',
         header: {
         left: 'prev,next today',

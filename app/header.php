@@ -13,12 +13,15 @@
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
     <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+    
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+
     <style>
         /* Customização do menu lateral */
         body {
@@ -39,12 +42,29 @@
             display: block;
         }
         .sidebar a:hover {
-            background-color: #495057;
+            background-color:rgb(255, 255, 255);
+            border-radius: 50px 0px 0px 50px; 
         }
         .main-content {
             flex-grow: 1;
             padding: 20px;
         }
+        .sidebar {
+        width: 250px;
+        background-color: #343a40;
+        color: white;
+        padding-top: 20px;
+        position: fixed; /* Fixa o menu lateral */
+        top: 0; /* Alinha no topo */
+        bottom: 0; /* Estende até o final da janela */
+        left: 0; /* Mantém à esquerda */
+        overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo for maior que a tela */
+    }
+    .main-content {
+        margin-left: 250px; /* Ajusta o conteúdo principal para não sobrepor o menu */
+        padding: 20px;
+    }
+
     </style>
 </head>
 <body>
@@ -54,13 +74,13 @@
         <h4 class="text-center text-white">Scheduler</h4>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="#">
+                <a class="nav-link active" href="http://localhost/Scheduler/app/dashboard.php">
                     <i class="bi bi-house-door"></i> Início
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-person"></i> Perfil
+                <a class="nav-link" href="http://localhost/Scheduler/app/agendamento.php">
+                    <i class="bi bi-person"></i> Agendamento
                 </a>
             </li>
             <li class="nav-item">
@@ -80,11 +100,3 @@
             </li>
         </ul>
     </div>
-
-    <!-- Conteúdo Principal -->
-    <!-- <div class="main-content">
-        <h1>Bem-vindo ao Painel!</h1>
-        <p>Este é um exemplo de estrutura com um menu lateral utilizando Bootstrap 5.</p>
-        <p>Adapte este código conforme a necessidade do seu projeto.</p>
-    </div> -->
-

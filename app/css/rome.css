@@ -64,8 +64,8 @@
 .rd-time-selected,
 .rd-time-option:hover {
   cursor: pointer;
-  background-color: #343A40;
-  color: #fff;
+  background-color: #ffffff;
+  color: #343A40;
   /* new */
   border-radius: 50%;
 }
@@ -75,7 +75,7 @@
 }
 .rd-day-disabled {
   cursor: default;
-  color: #343A40;
+  color: #ffffff;
 }
 .rd-time {
   position: relative;

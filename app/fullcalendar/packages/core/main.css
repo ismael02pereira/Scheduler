@@ -261,12 +261,12 @@ temporary rendered events).
   font-size: 0.85em;
   line-height: 1.4;
   border-radius: 3px;
-  border: 1px solid #343A40;
+  border: 1px solid #ffffff;
 }
 
 .fc-event,
 .fc-event-dot {
-  background-color: #343A40;
+  background-color: #ffffff;
   /* default BACKGROUND color */
 }
 
@@ -716,15 +716,15 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 /* "primary" coloring */
 .fc-button-primary {
-  color: #fff;
-  background-color: #343A40;
-  border-color: #343A40;
+  color: #343A40;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .fc-button-primary:hover {
-  color: #fff;
-  background-color: #343A40;
-  border-color: #343A40;
+  color: #343A40;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 
@@ -735,16 +735,16 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 }
 
 .fc-button-primary:disabled {
-  color: #fff;
-  background-color: #343A40;
-  border-color: #343A40;
+  color: #343A40;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .fc-button-primary:not(:disabled):active,
 .fc-button-primary:not(:disabled).fc-button-active {
-  color: #fff;
-  background-color: #343A40;
-  border-color: #343A40;
+  color: #343A40;
+  background-color: #ffffff;
+  border-color: #ffffff;
 }
 
 .fc-button-primary:not(:disabled):active:focus,
