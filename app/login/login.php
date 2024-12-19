@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="container mt-5">
@@ -20,14 +20,14 @@
                     <option value="cliente">Cliente</option>
                 </select>
             </div>
-            <form id="loginForm" method="POST" action="http://localhost/Scheduler/app/login/auth.php">
+            <form id="loginForm">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
                     <input type="email" class="form-control" id="email" required>
                 </div>
                 <div class="mb-3" id="passwordGroup">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" required>
+                    <input type="password" class="form-control" id="password">
                 </div>
                 <div class="mb-3 d-none" id="codGroup">
                     <label for="cod" class="form-label">Código:</label>
@@ -36,7 +36,7 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>
-
+    </div>
     <script src="js/login.js"></script>
-
-<?php include('./app/footer.php')?>
+</body>
+</html>

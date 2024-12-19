@@ -15,23 +15,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('loginForm').addEventListener('submit', function (e) {
         e.preventDefault();
+
         const userData = {
             email: document.getElementById('email').value,
             password: userType.value === 'profissional' ? document.getElementById('password').value : null,
             cod: userType.value === 'cliente' ? document.getElementById('cod').value : null,
         };
-        console.log(userData);
 
-        axios({
-            method: "POST",
-            url: "http://localhost/Scheduler/app/login/auth.php",
-            data: userData,
-        }).then(function (response) {
-            console.log(response)
-        }).catch(function (error) {
-            console.error("Erro na requisição:", error);
-        });
-        // console.log('Dados do Usuário:', userData);
-        // alert('Login efetuado com sucesso!');
+        axios.post('http://localhost/Scheduler/app/login/auth.php', userData)
+            .then(function (response) {
+                console.log(response)
+                if (!response.data.response) {
+                    Swal.fire('Erro', 'Senha ou password incorretos', 'error');
+                } else {
+                    if(response.data.type == 'barber'){
+                        Swal.fire('Sucesso', 'Login realizado com sucesso!', 'success');
+                    }
+                    window.location = "app/agendamento/agendamento.php";
+                }
+            })
+            .catch(function (error) {
+                console.error('Erro na requisição:', error);
+                Swal.fire('Erro', 'Ocorreu um problema no servidor.', 'error');
+            });
     });
 });

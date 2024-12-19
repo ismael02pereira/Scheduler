@@ -36,21 +36,55 @@ class User {
         $this->db = new Database();
     }
 
-    public function loginUser($email, $code) {
-        $stmt = $this->db->query("SELECT * FROM users WHERE email = ? AND code = ?", [$email, $code]);
-        echo $stmt;
-        exit;
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function createBarber($data) {
+        $sql = "INSERT INTO barbers (email, password, cod) VALUES (?, ?, ?)";
+        $this->db->query($sql, [$data['email'], $data['password'], $data['cod']]);
+
+        // Integração com o Google Calendar pode ser feita aqui
+    }
+
+    public function createUser($data) {
+        $sql = "INSERT INTO users (email, code) VALUES (?, ?)";
+        $this->db->query($sql, [$data['email'], $data['cod']]);
+
+        // Integração com o Google Calendar pode ser feita aqui
+    }
+
+    public function loginUser($email, $cod) {
+
+        $barber =  $this->db->query("SELECT * FROM barbers WHERE email = ? ", [$email]);
+        $verificacao = $barber->fetch(PDO::FETCH_ASSOC);
+
+        if($verificacao){
+            return false;
+        };
+
+        $data = [
+            'cod' => $cod,
+            'email' => $email
+        ];
+
+        $this->createUser($data);
+
+        $stmt = $this->db->query("SELECT * FROM users WHERE email = ?", [$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $user;
+
     }
 
     public function loginBarber($email, $password) {
         $stmt = $this->db->query("SELECT * FROM barbers WHERE email = ?", [$email]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ( $password == $user['password']) {
             return $user;
         }
         return false;
+    }
+    public function getUserByEmail($email) {
+        $stmt = $this->db->query("SELECT * FROM barbers WHERE email = ?", [$email]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $user;
     }
 
     public function recoverPassword($email) {
