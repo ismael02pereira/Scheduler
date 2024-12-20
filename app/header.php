@@ -121,7 +121,7 @@
 <body>
 
     <!-- Menu Lateral -->
-    <div class="sidebar" style="background: linear-gradient(to right, #624bff,rgb(127, 108, 252), #624bff);">
+    <div class="sidebar">
         <h4 class="text-center text-white">SCHEDULER</h4>
         <ul class="nav flex-column">
             <li class="nav-item">
