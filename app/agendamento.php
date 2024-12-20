@@ -8,8 +8,10 @@ ini_set('display_errors', 1);
 
 <!-- Conteúdo principal da página -->
 <div class="main-content ">
-<div class="bg-primary pt-10 pb-21"></div>
-<div class="container-fluid mt-n22 px-6">
+<div class="bg-primary base" style="border-radius: 10px 50px 10px 50px;">
+    <p class="title-pag" id="mes"></p>
+</div>
+<div class="container-fluid mt-n22 px-6 sobreposto">
     <!-- <div class="card shadow-lg bg-white rounded">
         <div class="card-body">
         </div>
@@ -57,91 +59,99 @@ ini_set('display_errors', 1);
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+        const meses = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list' ],
-        themeSystem: 'bootstrap',
-        locale: 'pt-br',
-        height: 'parent',
-        header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-        },
-        defaultView: 'dayGridMonth',
-        defaultDate: Date.now(),
-        navLinks: true, // can click day/week names to navigate views
-        editable: true,
-        eventLimit: true, // allow "more" link when too many events
-        events: [
-        {
-            title: 'All Day Event',
-            start: '2020-02-01',
-        },
-        {
-            title: 'Long Event',
-            start: '2020-02-07',
-            end: '2020-02-10'
-        },
-        {
-            groupId: 999,
-            title: 'Repeating Event',
-            start: '2020-02-09T16:00:00'
-        },
-        {
-            groupId: 999,
-            title: 'Repeating Event',
-            start: '2020-02-16T16:00:00'
-        },
-        {
-            title: 'Conference',
-            start: '2020-02-11',
-            end: '2020-02-13'
-        },
-        {
-            title: 'Meeting',
-            start: '2020-02-12T10:30:00',
-            end: '2020-02-12T12:30:00'
-        },
-        {
-            title: 'Lunch',
-            start: '2020-02-12T12:00:00'
-        },
-        {
-            title: 'Meeting',
-            start: '2020-02-12T14:30:00'
-        },
-        {
-            title: 'Happy Hour',
-            start: '2020-02-12T17:30:00'
-        },
-        {
-            title: 'Dinner',
-            start: '2020-02-12T20:00:00'
-        },
-        {
-            title: 'Birthday Party',
-            start: '2020-02-13T07:00:00'
-        },
-        {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2020-02-28'
-        }
-        ],
-        eventClick: function(info) {
-            info.jsEvent.preventDefault(); // don't let the browser navigate
+        const data = new Date();  
+        const nomeMes = meses[data.getMonth()];
+        document.getElementById('mes').innerText = nomeMes;
+        var calendarEl = document.getElementById('calendar');
 
-            if (info.event.url) {
-            window.open(info.event.url);
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['dayGrid', 'timeGrid', 'list', 'timeGridPlugin' ],
+            initialView: 'timeGridWeek',
+            themeSystem: 'bootstrap',
+            locale: 'pt-br',
+            height: 'parent',
+            header: {
+            left: 'prev,next',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            defaultView: 'dayGridMonth',
+            defaultDate: Date.now(),
+            navLinks: true, // can click day/week names to navigate views
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            events: [
+            {
+                title: 'All Day Event',
+                start: '2020-02-01',
+            },
+            {
+                title: 'Long Event',
+                start: '2020-02-07',
+                end: '2020-02-10'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2020-02-09T16:00:00'
+            },
+            {
+                groupId: 999,
+                title: 'Repeating Event',
+                start: '2020-02-16T16:00:00'
+            },
+            {
+                title: 'Conference',
+                start: '2020-02-11',
+                end: '2020-02-13'
+            },
+            {
+                title: 'Meeting',
+                start: '2020-02-12T10:30:00',
+                end: '2020-02-12T12:30:00'
+            },
+            {
+                title: 'Lunch',
+                start: '2020-02-12T12:00:00'
+            },
+            {
+                title: 'Meeting',
+                start: '2020-02-12T14:30:00'
+            },
+            {
+                title: 'Happy Hour',
+                start: '2020-02-12T17:30:00'
+            },
+            {
+                title: 'Dinner',
+                start: '2020-02-12T20:00:00'
+            },
+            {
+                title: 'Click for Google',
+                url: 'http://google.com/',
+                start: '2020-02-28'
+            },
+            {
+                title: 'Ismael Pereira',
+                start: '2024-12-20T17:00:00',
+                end: '2024-12-20T18:30:00'
             }
-        }
-  
-    });
-    
+            ],
+            eventClick: function(info) {
+                info.jsEvent.preventDefault(); // don't let the browser navigate
 
-    calendar.render();
+                if (info.event.url) {
+                window.open(info.event.url);
+                }
+            }
+    
+        });
+    
+        calendar.render();
     });
 
     document.getElementById('appointmentForm').addEventListener('submit', function (e) {

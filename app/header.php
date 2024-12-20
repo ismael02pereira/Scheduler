@@ -64,7 +64,58 @@
         margin-left: 250px; /* Ajusta o conteúdo principal para não sobrepor o menu */
         padding: 20px;
     }
+    .title-pag {
+        display: flex;
+        justify-content: center;
+        color: white;
+        font-family: Copperplate, Papyrus, fantasy;
+        font-size: 150px ;
+        /* width: 300px;
+        height: 200px; */
+        position: relative;
+        padding-bottom: 55px;
+        text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 
+    }
+    .main-content {
+        position: relative; 
+    }
+    /* #calendar{ */
+        /* position: absolute; Posiciona em relação ao #main-content */
+            /* top: 50px; Distância do topo do container */
+            /* left: 50px; Distância da borda esquerda */
+            /* width: 200px; */
+            /* height: 100px; */
+            /* background-color: coral; */
+            /* color: white; */
+            /* font-size: 1.2rem; */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* z-index: 10; Mantém acima de outros elementos */
+            /* border: 2px solid white */
+    /* } */
+    .base {
+            width: 100%;
+            /* height: 100%; */
+            /* background-color: lightgray; */
+        }
+
+        .sobreposto {
+            /* position: absolute;  */
+            /* top: 50px;
+            left: 50px; 
+            width: 200px;
+            height: 100px; */
+            /* background-color: coral; */
+            /* color: white; */
+            /* font-size: 1.2rem; */
+            display: flex;
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* z-index: 10; Mantém acima de outros elementos */
+            /* border: 2px solid white; */
+        }
     </style>
 </head>
 <body>
@@ -81,16 +132,6 @@
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/Scheduler/app/agendamento.php">
                     <i class="bi bi-person"></i> Agendamento
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-gear"></i> Dashboard
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-envelope"></i> Mensagens
                 </a>
             </li>
             <li class="nav-item">
