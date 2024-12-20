@@ -121,8 +121,8 @@
 <body>
 
     <!-- Menu Lateral -->
-    <div class="sidebar">
-        <h4 class="text-center text-white">Scheduler</h4>
+    <div class="sidebar" style="background: linear-gradient(to right, #624bff,rgb(127, 108, 252), #624bff);">
+        <h4 class="text-center text-white">SCHEDULER</h4>
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" href="http://localhost/Scheduler/app/dashboard.php">
@@ -131,6 +131,11 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/Scheduler/app/agendamento.php">
+                    <i class="bi bi-person"></i> Agenda
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/Scheduler/app/agendamentoCadastrar.php">
                     <i class="bi bi-person"></i> Agendamento
                 </a>
             </li>
@@ -141,3 +146,4 @@
             </li>
         </ul>
     </div>
+
